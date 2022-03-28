@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{74073F9C-B703-4DA3-A3AC-0754746AC0C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{5B68364D-1791-44AF-9C2F-B1CD13AA7FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0A8637D9-4FB9-4428-89B6-24B971D51109}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8637D9-4FB9-4428-89B6-24B971D51109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8637D9-4FB9-4428-89B6-24B971D51109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8637D9-4FB9-4428-89B6-24B971D51109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8637D9-4FB9-4428-89B6-24B971D51109}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA1EF6B9-1525-49AD-8E84-5AF0A13538FE}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B68364D-1791-44AF-9C2F-B1CD13AA7FDB} = {74073F9C-B703-4DA3-A3AC-0754746AC0C5}
+		{3D4EC16F-2616-4E0C-B2DE-D0AFF93EA91F} = {5B68364D-1791-44AF-9C2F-B1CD13AA7FDB}
+	EndGlobalSection
+EndGlobal

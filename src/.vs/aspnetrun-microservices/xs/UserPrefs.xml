@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{0A8637D9-4FB9-4428-89B6-24B971D51109}|Default">
+  <MonoDevelop.Ide.ItemProperties.Services.Catalog.Catalog.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Services/Catalog/Catalog.API/Program.cs" Line="12" Column="22" />
+      <File FileName="Services/Catalog/Catalog.API/Startup.cs" Line="62" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/appsettings.json" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/appsettings.Development.json" Line="10" Column="1" />
+      <File FileName="docker-compose.override.yml" Line="21" Column="1" />
+      <File FileName="docker-compose.yml" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Data/CatalogContext.cs" Line="32" Column="2" />
+      <File FileName="Services/Catalog/Catalog.API/Data/CatalogContextData.cs" Line="23" Column="26" />
+      <File FileName="Services/Catalog/Catalog.API/Data/ICatalogContext.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Properties/launchSettings.json" Line="22" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Controllers/CatalogController.cs" Line="30" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Repository/ProductRepository.cs" Line="22" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Entities/Product.cs" Line="19" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Dockerfile" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Repository/IProductRepository.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="aspnetrun-microservices" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
