@@ -41,3 +41,4 @@
 /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Catalog/Catalog.API/obj/Debug/net5.0/ref/Catalog.API.dll
 /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Catalog/Catalog.API/obj/Debug/net5.0/Catalog.API.pdb
 /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Catalog/Catalog.API/obj/Debug/net5.0/Catalog.API.genruntimeconfig.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Catalog/Catalog.API/obj/Debug/net5.0/Catalog.API.csproj.AssemblyReference.cache

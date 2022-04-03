@@ -9,6 +9,45 @@ services:
     ports:
       - "27017:27017"
 
+  basketdb:
+    container_name: basketdb
+    restart: always
+    ports:
+      - "6379:6379"
+
+  discountdb:
+    container_name: discountdb
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=DiscountDb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5431:5432"
+
+  pgadmin:
+    container_name: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "8005:80"
+
+  portainer:
+    container_name: portainer
+    restart: always
+    volumes:
+    - portainer_data:/data
+    - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+    - "8080:8000"
+    - "9000:9000"
+
   catalog.api:
     container_name: catalog.api
     environment:
@@ -18,3 +57,24 @@ services:
       - catalogdb
     ports:
       - "8000:80"
+
+  basket.api:
+    container_name: basket.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CacheSetting__ConnectionString=basketdb:6379
+    depends_on:
+      - basketdb
+    ports:
+      - "8001:80"
+
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings__ConnectionString=Server=discountdb;Username=admin;Database=DiscountDb;Port=5432;Password=admin1234"
+    depends_on:
+      - discountdb
+    ports:
+      - "8002:80"
+
