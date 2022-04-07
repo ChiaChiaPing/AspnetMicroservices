@@ -12,6 +12,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Basket.API.Repositories;
 using Microsoft.OpenApi.Models;
+using Discount.Grpc.Protos;
+using Basket.API.GrpcServices;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Grpc.Core;
 
 namespace Basket.API
 {
@@ -31,9 +35,28 @@ namespace Basket.API
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = Configuration.GetValue<string>("CacheSetting:ConnectionString");
-            });
+            }); 
 
             services.AddScoped<IBasketRepository, BasketRepository>();
+
+            //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
+            //
+            //services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
+
+            // register grpc client
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
+
+            services.AddGrpcClient<DiscountGrpcService.DiscountGrpcServiceClient>(o =>
+            {
+                o.Address = new Uri(Configuration["GrpcSettings:DiscountUri"]);
+                //o.ChannelOptionsActions.Add(channelOptions => channelOptions.Credentials = ChannelCredentials.Insecure);
+
+            });
+
+            // register the  customized  grpc DAO
+            services.AddScoped<DiscountGrpcServices>();
 
             services.AddControllers();
             services.AddSwaggerGen(c => {

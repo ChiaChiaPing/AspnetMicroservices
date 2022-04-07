@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerComposeProjectPath>../../../docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Npgsql" Version="6.0.3" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\" />
+    <None Remove="Repositories\" />
+    <None Remove="Data\" />
+    <None Remove="Extensions\" />
+    <None Remove="Protos\" />
+    <None Remove="Services\" />
+    <None Remove="Protos\discount.proto" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Mapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Data\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Protos\" />
+    <Folder Include="Services\" />
+    <Folder Include="Mapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\discount.proto" GrpcServices="Server"></Protobuf>
+  </ItemGroup>
+</Project>

@@ -11,17 +11,17 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_basket.api$
     volumes:
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API:/app
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src:/src
       - /Users/jiajiaping/vsdbg/vs2017u5:/remote_debugger:rw
-      - /Users/jiajiaping/.nuget/packages/:/root/.nuget/packages:ro
+#$nuget_volume_mapping_basket.api$
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/Basket.API.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_basket.api$ \"/app/bin/Debug/net5.0/Basket.API.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -35,17 +35,17 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_catalog.api$
     volumes:
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Catalog/Catalog.API:/app
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src:/src
       - /Users/jiajiaping/vsdbg/vs2017u5:/remote_debugger:rw
-      - /Users/jiajiaping/.nuget/packages/:/root/.nuget/packages:ro
+#$nuget_volume_mapping_catalog.api$
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/Catalog.API.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_catalog.api$ \"/app/bin/Debug/net5.0/Catalog.API.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
@@ -60,17 +60,42 @@ services:
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_discount.api$
     volumes:
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Discount/Discount.API:/app
       - /Users/jiajiaping/Desktop/AspnetMicroservices/src:/src
       - /Users/jiajiaping/vsdbg/vs2017u5:/remote_debugger:rw
-      - /Users/jiajiaping/.nuget/packages/:/root/.nuget/packages:ro
+#$nuget_volume_mapping_discount.api$
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/Discount.API.dll\""
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_discount.api$ \"/app/bin/Debug/net5.0/Discount.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  discount.grpc:
+    image: discount:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "Discount.Grpc"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_discount.grpc$
+    volumes:
+      - /Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Discount/Discount.Grpc:/app
+      - /Users/jiajiaping/Desktop/AspnetMicroservices/src:/src
+      - /Users/jiajiaping/vsdbg/vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_discount.grpc$
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_discount.grpc$ \"/app/bin/Debug/net5.0/Discount.Grpc.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true

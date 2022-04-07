@@ -1,0 +1,45 @@
+﻿syntax = "proto3";
+
+/* define the stored location for generated runtime class via protobuffer compiler */
+option csharp_namespace = "Discount.Grpc.Protos";
+
+/* define the protocol in thte service, define how client communicate with server*/
+
+service DiscountGrpcService{
+
+    /* like when client call method with which type of message then return which type if message */
+    rpc GetDiscount(GetDiscountRequest) returns (CouponModel);
+    rpc CreateDiscount(CreateDiscountRequest) returns (CouponModel);
+    rpc UpdateDiscount(UpdateDiscountRequest) returns (CouponModel);
+    rpc DeleteDiscount(DeleteDiscountRequest) returns (DeleteDiscountResponse);
+
+}
+
+/* define the field that included in the message type => like field in the class*/
+/* number is like the order of fields*/
+message CouponModel{
+    int32 id = 1;
+    string productName = 2;
+    string description= 3;
+    int32 Amount = 4;
+}
+
+message GetDiscountRequest{
+    string productName = 1;
+}
+
+message CreateDiscountRequest{
+    CouponModel couponModel = 1;
+}
+
+message UpdateDiscountRequest{
+    CouponModel couponModel = 1;
+}
+
+message DeleteDiscountRequest{
+    string productName = 1;
+}
+
+message DeleteDiscountResponse{
+    bool success = 1; 
+}

@@ -12,6 +12,7 @@
     <None Remove="Entities\" />
     <None Remove="CoupongContext\" />
     <None Remove="Repsitories\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
@@ -22,5 +23,6 @@
     <Folder Include="Entities\" />
     <Folder Include="Data\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>
