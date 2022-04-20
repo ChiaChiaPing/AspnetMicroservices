@@ -7,9 +7,12 @@ services:
     depends_on:
       basketdb:
         condition: service_started
+      rabbitmq:
+        condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CacheSetting__ConnectionString: basketdb:6379
+      EventBusSettings__HostAddress: amqp://guest:guest@rabbitmq:5672
       GrpcSettings__DiscountUri: http://discount.grpc:80
     image: basket
     ports:
@@ -72,7 +75,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       DatabaseSettings__ConnectionString: Server=discountdb;Username=admin;Database=DiscountDb;Port=5432;Password=admin1234
-    image: discount
+    image: discountgrpc
     ports:
     - published: 8003
       target: 80
@@ -89,6 +92,35 @@ services:
     restart: always
     volumes:
     - postgres_data:/var/lib/postgresql/data:rw
+  orderdb:
+    container_name: orderdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: SwN12345678
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports:
+    - published: 1433
+      target: 1433
+    restart: always
+  ordering.api:
+    build:
+      context: /Users/jiajiaping/Desktop/AspnetMicroservices/src
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+    container_name: ordering.api
+    depends_on:
+      orderdb:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__OrderingConnectionString: Server=orderdb;Database=OrderDb;User
+        Id=sa;Password=SwN12345678
+      EventBusSettings__HostAddress: amqp://guest:guest@rabbitmq:5672
+    image: ordering
+    ports:
+    - published: 8004
+      target: 80
   pgadmin:
     container_name: pgadmin
     environment:
@@ -113,6 +145,15 @@ services:
     volumes:
     - portainer_data:/data:rw
     - /var/run/docker.sock:/var/run/docker.sock:rw
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management-alpine
+    ports:
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
+    restart: always
 version: '3.4'
 volumes:
   mongo_data: {}

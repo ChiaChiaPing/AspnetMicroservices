@@ -1,37 +1,61 @@
-﻿<Properties StartupConfiguration="{2759AAB8-08B2-4C44-A242-B313FF7CE60A}|Default">
+﻿<Properties StartupConfiguration="{0A8637D9-4FB9-4428-89B6-24B971D51109}|Default">
   <MonoDevelop.Ide.ItemProperties.Services.Catalog.Catalog.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.Services.Discount.Discount.Grpc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.override.yml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.yml">
     <Files>
-      <File FileName="Services/Discount/Discount.Grpc/Program.cs" Line="37" Column="22" />
-      <File FileName="Services/Discount/Discount.Grpc/Startup.cs" Line="48" Column="124" />
-      <File FileName="Services/Basket/Basket.API/Program.cs" Line="1" Column="1" />
-      <File FileName="Services/Basket/Basket.API/Startup.cs" Line="90" Column="1" />
-      <File FileName="Services/Basket/Basket.API/appsettings.json" Line="2" Column="16" />
-      <File FileName="Services/Basket/Basket.API/Dockerfile" Line="1" Column="1" />
-      <File FileName="Services/Discount/Discount.Grpc/appsettings.json" Line="1" Column="1" />
-      <File FileName="Services/Discount/Discount.Grpc/Properties/launchSettings.json" Line="4" Column="32" />
-      <File FileName="Services/Basket/Basket.API/GrpcServices/DiscountGrpcServices.cs" Line="1" Column="1" />
-      <File FileName="Services/Basket/Basket.API/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="Services/Basket/Basket.API/Controllers/BasketController.cs" Line="49" Column="29" />
-      <File FileName="Services/Discount/Discount.Grpc/Services/DiscountService.cs" Line="1" Column="1" />
-      <File FileName="Services/Discount/Discount.Grpc/Repositories/DiscountRepository.cs" Line="1" Column="1" />
-      <File FileName="Services/Discount/Discount.Grpc/Dockerfile" Line="1" Column="1" />
+      <File FileName="docker-compose.override.yml" Line="83" Column="72" />
+      <File FileName="Services/Catalog/Catalog.API/Data/CatalogContext.cs" Line="20" Column="79" />
+      <File FileName="Services/Catalog/Catalog.API/Data/CatalogContextData.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Data/ICatalogContext.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Startup.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Program.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Repository/ProductRepository.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/appsettings.json" Line="6" Column="5" />
+      <File FileName="Services/Catalog/Catalog.API/Repository/IProductRepository.cs" Line="1" Column="1" />
+      <File FileName="Services/Discount/Discount.API/appsettings.json" Line="4" Column="5" />
       <File FileName="docker-compose.yml" Line="1" Column="1" />
-      <File FileName="docker-compose.override.yml" Line="84" Column="34" />
-      <File FileName="Services/Discount/Discount.Grpc/Repositories/IDiscountRepository.cs" Line="1" Column="1" />
-      <File FileName="Services/Basket/Basket.API/Entities/ShoppingCart.cs" Line="1" Column="1" />
+      <File FileName="Services/Discount/Discount.API/Dockerfile" Line="1" Column="1" />
+      <File FileName="Services/Discount/Discount.API/Program.cs" Line="1" Column="1" />
+      <File FileName="Services/Discount/Discount.API/Startup.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Controllers/CatalogController.cs" Line="1" Column="1" />
+      <File FileName="Services/Catalog/Catalog.API/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="Services/Basket/Basket.API/Startup.cs" Line="62" Column="90" />
+      <File FileName="Services/Ordering/Ordering.API/appsettings.json" Line="12" Column="10" />
+      <File FileName="Services/Ordering/Ordering.API/Startup.cs" Line="1" Column="1" />
+      <File FileName="Services/Ordering/Ordering.API/Dockerfile" Line="1" Column="1" />
+      <File FileName="Services/Ordering/Ordering.API/EventBusConsumer/BasketCheckConsumer.cs" Line="1" Column="1" />
+      <File FileName="Services/Basket/Basket.API/Controllers/BasketController.cs" Line="1" Column="1" />
+      <File FileName="Services/Ordering/Ordering.API/Program.cs" Line="1" Column="1" />
+      <File FileName="Services/Ordering/Ordering.API/Controllers/OrderController.cs" Line="1" Column="1" />
+      <File FileName="Services/Basket/Basket.API/appsettings.json" Line="3" Column="39" />
+      <File FileName="Services/Basket/Basket.API/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="Services/Discount/Discount.Grpc/Dockerfile" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="aspnetrun-microservices" expanded="True">
-            <Node name="Services" expanded="True" />
-            <Node name="docker-compose" expanded="True" selected="True">
+            <Node name="Services" expanded="True">
+              <Node name="Basket" expanded="True">
+                <Node name="Basket.API" expanded="True">
+                  <Node name="appsettings.json" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Discount" expanded="True">
+                <Node name="Discount.Grpc" expanded="True" selected="True" />
+              </Node>
+              <Node name="Ordering" expanded="True">
+                <Node name="Ordering.API" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="docker-compose" expanded="True">
               <Node name="docker-compose.yml" expanded="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

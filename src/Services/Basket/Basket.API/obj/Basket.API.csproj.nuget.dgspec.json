@@ -4,14 +4,14 @@
     "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj": {}
   },
   "projects": {
-    "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj": {
+    "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj",
-        "projectName": "Basket.API",
-        "projectPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj",
+        "projectUniqueName": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj",
+        "projectName": "EventBus.Messages",
+        "projectPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj",
         "packagesPath": "/Users/jiajiaping/.nuget/packages/",
-        "outputPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/obj/",
+        "outputPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jiajiaping/.config/NuGet/NuGet.Config"
@@ -37,10 +37,82 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj",
+        "projectName": "Basket.API",
+        "projectPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/Basket.API.csproj",
+        "packagesPath": "/Users/jiajiaping/.nuget/packages/",
+        "outputPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Basket/Basket.API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/jiajiaping/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj": {
+                "projectPath": "/Users/jiajiaping/Desktop/AspnetMicroservices/src/BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.44.0, )"
+            },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.1.5, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.1.5, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.1.5, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",

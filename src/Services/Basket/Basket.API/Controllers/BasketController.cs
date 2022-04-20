@@ -5,8 +5,9 @@ using System.Net;
 using Basket.API.Entities;
 using System.Threading.Tasks;
 using Basket.API.GrpcServices;
-using Discount.Grpc.Protos;
-
+using AutoMapper;
+using EventBus.Messages;
+using MassTransit;
 
 namespace Basket.API.Controllers
 {
@@ -17,12 +18,17 @@ namespace Basket.API.Controllers
     {
         private readonly IBasketRepository _repository;
         private readonly DiscountGrpcServices _discountGrpcServices;
+        private readonly IPublishEndpoint _publishEndpoint;
+        private readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository repository, DiscountGrpcServices discountGrpcServices)
+        public BasketController(IBasketRepository repository, DiscountGrpcServices discountGrpcServices,
+                                IMapper mapper, IPublishEndpoint publishEndpont)
         {
 
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _discountGrpcServices = discountGrpcServices ?? throw new ArgumentNullException(nameof(discountGrpcServices));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _publishEndpoint = publishEndpont ?? throw new ArgumentNullException(nameof(publishEndpont));
         }
 
         [HttpGet("{userName}",Name ="GetBasket")]
@@ -57,6 +63,35 @@ namespace Basket.API.Controllers
         {
             await _repository.DeleteBasket(userName);
             return Ok();
+        }
+
+
+        [HttpPost("[action]")]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> Checkout(BasketCheckout basketCheckout)
+        {
+            // get the basket
+            var basket = await _repository.GetBasket(basketCheckout.UserName);
+            if (basket == null)
+                return BadRequest();
+
+          
+            // convert to the BasketCheckoutEvent through auto mapper which act as Adapter
+            var basketCheckOutEvent = _mapper.Map<BasketCheckoutEvent>(basketCheckout);
+
+            // set the total priice to BasketCheckout
+            basketCheckOutEvent.TotalPrice = basket.TotalPrice;
+
+            // send the BasketCheckoutEvent to the Message Queue
+            await _publishEndpoint.Publish(basketCheckOutEvent);
+
+
+            // remove the basket in the redis
+            await _repository.DeleteBasket(basket.UserName);
+
+            return Accepted();
+
         }
 
     }

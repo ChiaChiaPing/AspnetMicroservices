@@ -16,6 +16,7 @@ using Discount.Grpc.Protos;
 using Basket.API.GrpcServices;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Grpc.Core;
+using MassTransit;
 
 namespace Basket.API
 {
@@ -31,23 +32,18 @@ namespace Basket.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // Redis Configuration
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = Configuration.GetValue<string>("CacheSetting:ConnectionString");
             }); 
 
+            // General Configuration
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddAutoMapper(typeof(Startup));
 
-            //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-            //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
-            //
-            //services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
-
-            // register grpc client
+            // Grpc configuration - register grpc client
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-
-
             services.AddGrpcClient<DiscountGrpcService.DiscountGrpcServiceClient>(o =>
             {
                 o.Address = new Uri(Configuration["GrpcSettings:DiscountUri"]);
@@ -57,6 +53,18 @@ namespace Basket.API
 
             // register the  customized  grpc DAO
             services.AddScoped<DiscountGrpcServices>();
+
+            // MassTransit RabbitMQ Configuration. define the rabbitmq connection.
+            services.AddMassTransit(config =>
+            {
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration.GetValue<string>("EventBusSettings:HostAddress"));
+                }); 
+            });
+
+            // let MassTransit as host services
+            services.AddMassTransitHostedService();
 
             services.AddControllers();
             services.AddSwaggerGen(c => {

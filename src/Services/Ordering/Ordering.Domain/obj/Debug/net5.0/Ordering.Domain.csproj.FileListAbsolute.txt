@@ -1,0 +1,12 @@
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/bin/Debug/net5.0/Ordering.Domain.deps.json
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/bin/Debug/net5.0/Ordering.Domain.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/bin/Debug/net5.0/ref/Ordering.Domain.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/bin/Debug/net5.0/Ordering.Domain.pdb
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.csproj.AssemblyReference.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.AssemblyInfoInputs.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.AssemblyInfo.cs
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.csproj.CoreCompileInputs.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/ref/Ordering.Domain.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Domain/obj/Debug/net5.0/Ordering.Domain.pdb

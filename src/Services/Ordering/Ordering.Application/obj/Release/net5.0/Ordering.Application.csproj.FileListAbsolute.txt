@@ -1,0 +1,15 @@
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/Ordering.Application.deps.json
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/Ordering.Application.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/ref/Ordering.Application.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/Ordering.Application.pdb
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/Ordering.Domain.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/bin/Release/net5.0/Ordering.Domain.pdb
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.csproj.AssemblyReference.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.AssemblyInfoInputs.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.AssemblyInfo.cs
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.csproj.CoreCompileInputs.cache
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.csproj.CopyComplete
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/ref/Ordering.Application.dll
+/Users/jiajiaping/Desktop/AspnetMicroservices/src/Services/Ordering/Ordering.Application/obj/Release/net5.0/Ordering.Application.pdb
