@@ -43,7 +43,7 @@ namespace Catalog.API.Controllers
 
         // HTTPMethod Get define the params. the name is just meta data for the rouute
         // HTTPGET("{id}") is appended resource endpoint ../{id}
-        [HttpGet("{id:length(24)}", Name = "GetProductById")]
+        [HttpGet("{id}", Name = "GetProductById")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> GetProductById(string id)
@@ -115,7 +115,7 @@ namespace Catalog.API.Controllers
 
         }
 
-        [HttpDelete("{id:length(24)}",Name = "DeleteProduct")]
+        [HttpDelete("{id}",Name = "DeleteProduct")]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteProduct(string id)
         {

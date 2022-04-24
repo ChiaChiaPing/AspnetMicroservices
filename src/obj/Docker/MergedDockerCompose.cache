@@ -106,6 +106,8 @@ services:
         condition: service_started
       ordering.api:
         condition: service_started
+      shopping.aggregator:
+        condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: ocelotapigw
@@ -174,6 +176,27 @@ services:
     - published: 15672
       target: 15672
     restart: always
+  shopping.aggregator:
+    build:
+      context: /Users/jiajiaping/Desktop/AspnetMicroservices/src
+      dockerfile: ApiGateways/Shopping.Aggregator/Shopping.Aggregator/Dockerfile
+    container_name: shopping.aggregator
+    depends_on:
+      basket.api:
+        condition: service_started
+      catalog.api:
+        condition: service_started
+      ordering.api:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ApiSettings__BasketUrl: http://basket.api
+      ApiSettings__CatalogUrl: http://catalog.api
+      ApiSettings__OrderingUrl: http://ordering.api
+    image: shopping
+    ports:
+    - published: 8006
+      target: 80
 version: '3.4'
 volumes:
   mongo_data: {}

@@ -11,7 +11,7 @@ namespace Catalog.API.Entities
         // document id, need id
         // Binary Json
         [BsonId] 
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         public string Id { get; set; }
 
         
