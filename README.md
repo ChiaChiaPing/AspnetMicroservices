@@ -35,3 +35,5 @@ This project is just POC project to understand some supported service behind the
   - Docker
   - Docker Compose
 
+### Reference:
+  - https://github.com/aspnetrun/run-aspnetcore-microservices
