@@ -1,6 +1,30 @@
 version: '3.4'
 
 services:
+  aspnetrunbasics:
+    image: aspnetrunbasics:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "AspnetRunBasics"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_aspnetrunbasics$
+    volumes:
+      - /Users/jiajiaping/Desktop/AspnetMicroservices/src/WebApps/AspnetRunBasics:/app
+      - /Users/jiajiaping/Desktop/AspnetMicroservices/src:/src
+      - /Users/jiajiaping/vsdbg/vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_aspnetrunbasics$
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_aspnetrunbasics$ \"/app/bin/Debug/net5.0/AspnetRunBasics.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
   basket.api:
     image: basket:dev
     build:
@@ -25,6 +49,7 @@ services:
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
+
   catalog.api:
     image: catalog:dev
     build:

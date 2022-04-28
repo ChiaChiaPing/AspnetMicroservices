@@ -1,4 +1,19 @@
 services:
+  aspnetrunbasics:
+    build:
+      context: /Users/jiajiaping/Desktop/AspnetMicroservices/src
+      dockerfile: WebApps/AspnetRunBasics/Dockerfile
+    container_name: aspnetrunbasics
+    depends_on:
+      ocelotapigw:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ApiSettings__GatewayUrl: http://ocelotapigw
+    image: aspnetrunbasics
+    ports:
+    - published: 8007
+      target: 80
   basket.api:
     build:
       context: /Users/jiajiaping/Desktop/AspnetMicroservices/src
